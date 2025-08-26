@@ -1,44 +1,74 @@
-<p align="center"> <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" width="90" alt="Store Icon"/> <img src="https://cdn-icons-png.flaticon.com/512/2721/2721296.png" width="90" alt="AI Icon"/> <img src="https://cdn-icons-png.flaticon.com/512/5968/5968705.png" width="90" alt="Database Icon"/> </p> <h1 align="center">Pepteam LLM Store Search</h1> <p align="center"> <b>Doğal dilde, şehir ve hizmet filtreli, vektör tabanlı mağaza arama sistemi</b> </p>
-✨ Proje Özeti
-Pepteam LLM Store Search, mağaza verilerini vektörleştirip Qdrant vektör veritabanında depolayan ve kullanıcıdan gelen doğal dildeki sorguları, şehir ve hizmet filtreleriyle birlikte semantik olarak arayabilen modern bir arama altyapısıdır.
+<div align="center">
+  
+<img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" width="90" alt="Store Icon"/> 
+<img src="https://cdn-icons-png.flaticon.com/512/2721/2721296.png" width="90" alt="AI Icon"/> 
+<img src="https://cdn-icons-png.flaticon.com/512/5968/5968705.png" width="90" alt="Database Icon"/> 
 
-🚀 Temel Özellikler
-🏪 Doğal dilde mağaza arama
-🧠 Embedding ile vektörleştirme
-🗄️ Qdrant vektör veritabanı entegrasyonu
-🏷️ Şehir ve hizmet bazlı filtreleme
-🔍 Anlam bazlı en yakın sonuçlar ve benzerlik skorları
-🚫 Sonuç yoksa veya skor düşükse açıklayıcı mesajlar
-🧩 Proje Akışı
-Veri Hazırlama:
-Mağaza verileri JSON formatında hazırlanır.
+# 🏪 Pepteam LLM Store Search
 
-province (şehir)
-services (hizmetler, dizi)
-notes (özel notlar)
-Vektörleştirme:
-Her mağaza için özet metin oluşturulur ve embedding modeliyle vektörleştirilir.
+**Doğal dilde, şehir ve hizmet filtreli, vektör tabanlı mağaza arama sistemi**
 
-Qdrant’a Yükleme:
-Oluşan vektörler ve mağaza bilgileri Qdrant veritabanına toplu olarak yüklenir.
+</div>
 
-Akıllı Sorgu:
-Kullanıcıdan alınan doğal dildeki sorgu, embedding ile vektörleştirilir ve Qdrant’ta arama yapılır.
-Şehir ve hizmet filtreleriyle arama daraltılabilir.
+---
 
-Sonuçların Sunumu:
-En alakalı mağazalar, benzerlik skorlarıyla birlikte kullanıcıya sunulur.
-Sonuç yoksa veya skor düşükse, kullanıcıya nedenini açıklayan mesaj gösterilir.
+## ✨ Proje Özeti
+**Pepteam LLM Store Search**, mağaza verilerini vektörleştirip **Qdrant vektör veritabanında** depolayan ve kullanıcıdan gelen doğal dildeki sorguları, **şehir** ve **hizmet filtreleriyle** birlikte **semantik** olarak arayabilen modern bir arama altyapısıdır.  
 
-🖼️ Örnek JSON Veri
+---
+
+## 🚀 Temel Özellikler
+- 🏪 Doğal dilde mağaza arama  
+- 🧠 Embedding ile vektörleştirme  
+- 🗄️ Qdrant vektör veritabanı entegrasyonu  
+- 🏷️ Şehir ve hizmet bazlı filtreleme  
+- 🔍 Anlam bazlı en yakın sonuçlar ve benzerlik skorları  
+- 🚫 Sonuç yoksa veya skor düşükse açıklayıcı mesajlar  
+
+---
+
+## 🧩 Proje Akışı
+
+### 1️⃣ Veri Hazırlama
+Mağaza verileri JSON formatında hazırlanır.  
+Alanlar:  
+- `province` (şehir)  
+- `services` (hizmetler, dizi)  
+- `notes` (özel notlar)  
+
+### 2️⃣ Vektörleştirme
+Her mağaza için özet metin oluşturulur ve **embedding modeliyle vektörleştirilir.**
+
+### 3️⃣ Qdrant’a Yükleme
+Oluşan vektörler ve mağaza bilgileri **Qdrant veritabanına toplu olarak yüklenir.**
+
+### 4️⃣ Akıllı Sorgu
+- Kullanıcıdan alınan doğal dildeki sorgu embedding ile vektörleştirilir.  
+- Qdrant üzerinde arama yapılır.  
+- Şehir ve hizmet filtreleriyle arama daraltılabilir.  
+
+### 5️⃣ Sonuçların Sunumu
+- En alakalı mağazalar benzerlik skorlarıyla kullanıcıya sunulur.  
+- Sonuç yoksa/düşükse → açıklayıcı mesaj gösterilir.  
+
+---
+
+## 🖼️ Örnek JSON Veri
+```json
+{
+  "store_name": "Pepteam İstanbul 1",
+  "province": "İstanbul",
+  "services": ["Satış", "Teknik Servis"],
+  "notes": "Merkez mağaza"
+}
 🔍 Örnek Sorgu Akışı
-🛠️ Kullanılan Teknolojiler
-<p align="center"> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" width="50" alt="Node.js"/> <img src="https://avatars.githubusercontent.com/u/100584236?s=200&v=4" width="50" alt="Qdrant"/> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" width="50" alt="JavaScript"/> </p>
-Node.js
-Qdrant
-@xenova/transformers
-prompt-sync
-uuid
+Kullanıcı Sorgusu:
+"Ankara'da teknik servis veren mağazaları bul"
+
+🔎 Sistem bu sorguyu embedding’e çevirir → Qdrant’ta arar → ilgili mağazaları getirir.
+
+
 💡 Proje Amacı
+
 Bu proje, klasik anahtar kelime aramalarının ötesine geçerek, kullanıcıların doğal dilde ve anlam bazlı sorgularla mağaza veritabanında arama yapabilmesini sağlar.
-Ayrıca, şehir ve hizmet gibi alanlarda filtreleme ile daha hassas sonuçlar sunar.
+Ayrıca şehir ve hizmet filtreleri ile daha hassas sonuçlar sunar.
